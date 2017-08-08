@@ -1,0 +1,31 @@
+{
+  "name": "message_receiver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ziqi Hong",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "config": "^1.26.1",
+    "faker": "^4.1.0",
+    "intercom-client": "^2.8.8",
+    "mixpanel": "^0.7.0",
+    "pg": "^7.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "babel-register": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-cli": "^1.4.0",
+    "gulp-live-server": "^0.0.31",
+    "rimraf": "^2.6.1"
+  }
+}
