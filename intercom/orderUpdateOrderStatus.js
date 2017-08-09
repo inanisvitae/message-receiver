@@ -1,7 +1,7 @@
 const Intercom = require('intercom-client');
-const client = new Intercom.Client({ token: 'dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA=' });
+const config = require('config');
+const client = new Intercom.Client(config.get('customer_management.intercom'));
 const pg = require('pg');
-const config = require('../config').config;
 const connPool = new pg.Pool(config.pg);
 
 
@@ -31,6 +31,8 @@ const updateOrderStatus = (ch) => {
 
 		    	let queryWithCustomerId = `SELECT customer_id, guest_id, status, promoter_id, payment, id, deleted_at FROM public.order WHERE customer_id = ${customer_id};`
 		    	
+		    	let queryWithCustomerIdWithPromoterUsername = `SELECT t1.customer_id AS customer_id, t1.guest_id AS guest_id, t1.status AS status, t1.promoter_id AS promoter_id, t1.payment AS payment, t1.id AS id, t1.deleted_at AS deleted_at, t2.username AS username FROM(SELECT customer_id, guest_id, status, promoter_id, payment, id, deleted_at FROM public.order WHERE customer_id = ${customer_id}) t1, (SELECT username, id FROM public.promoter) t2 WHERE t2.id = t1.promoter_id;`;
+
 		    	console.log("queryWithCustomerId");
 		    	console.log(queryWithCustomerId);
 
@@ -66,11 +68,17 @@ const updateOrderStatus = (ch) => {
 		    						if(completedOrdersSignature.indexOf(element.status) != -1) {
 		    							num_orders += 1;
 		    						}
+
+		    						
+
 		    						if(statusMap.has(currentStatus)) {
 		    							statusMap.set(currentStatus, statusMap.get(currentStatus) + 1);
 		    						}else{
 		    							statusMap.set(currentStatus, 1);
 		    						}
+
+		    						//Should insert promoter
+
 		    						console.log("destructuring");
 		    					});
 

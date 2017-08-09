@@ -1,8 +1,9 @@
 const Intercom = require('intercom-client');
-const client = new Intercom.Client({ token: 'dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA=' });
+const config = require('config');
+const client = new Intercom.Client(config.get('customer_management.intercom'));
 const pg = require('pg');
-const config = require('../config').config;
 const connPool = new pg.Pool(config.pg);
+
 
 
 const orderBackendUpdateOrderStatus = (ch) => {
@@ -13,7 +14,7 @@ const orderBackendUpdateOrderStatus = (ch) => {
 		const contentObject = JSON.parse(msg.content);
 		const customer_id = contentObject.customer_id;
 		
-		let queryWithCustomerId = `SELECT customer_id, guest_id, status, promoter_id, payment, id FROM public.order WHERE customer_id = ${customer_id};`;
+		let queryWithCustomerId = `SELECT customer_id, guest_id, status, promoter_id, payment, id, deleted_at FROM public.order WHERE customer_id = ${customer_id};`;
 
 		const completedOrdersSignature = ['paid', 'waiting_for_delivery', 'deliverd', 'waiting_for_pickup', 'completed'];
 

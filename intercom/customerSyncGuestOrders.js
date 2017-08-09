@@ -1,7 +1,7 @@
 const Intercom = require('intercom-client');
-const client = new Intercom.Client({ token: 'dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA=' });
+const config = require('config');
+const client = new Intercom.Client(config.get('customer_management.intercom'));
 const pg = require('pg');
-const config = require('../config').config;
 const connPool = new pg.Pool(config.pg);
 
 

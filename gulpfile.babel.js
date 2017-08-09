@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const rimraf = require('rimraf');
 
 const dirs = {
   src: 'src',
@@ -17,3 +18,6 @@ gulp.task('build', () => {
         .pipe(babel())
         .pipe(gulp.dest(dirs.dest));
 });
+
+gulp.task('rebuild', ['clean', 'build']);
+

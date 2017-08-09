@@ -1,9 +1,9 @@
 // import Intercom from 'intercom-client';
+const config = require('config');
 const Intercom = require('intercom-client');
 //Should use token to initialize a client object
-const client = new Intercom.Client({ token: 'dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA=' });
+const client = new Intercom.Client(config.get('customer_management.intercom'));
 const pg = require('pg');
-const config = require('../config').config;
 const connPool = new pg.Pool(config.pg);
 // import customerUserRegister from './customer.userRegister';
 const customerUserRegister = require('./customerUserRegister.js').customerUserRegister;
