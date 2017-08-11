@@ -1,28 +1,26 @@
 {
-	"analytics": {
-		"mixpanel": {
-			"token": "a837a7c5c59cd2bf2836be160e7174ca"
-		}
-	},
-	"system": {
-		"amqp": {
-			"url": "amqp://localhost"
-		}
-	},
-	"customer_management": {
-		"intercom": {
-			"token": "dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA="
-		}
-	},
-	"database": {
-		"pg": {
-		  "user": "ziqihong",
-		  "database": "tickets",
-		  "password": "", 
-		  "host": "127.0.0.1",
-		  "port": 5432, 
-		  "max": 10, 
-		  "idleTimeoutMillis": 1000
-		}
-	}
+  "analytics": {
+    "mixpanel": {
+      "token": "a837a7c5c59cd2bf2836be160e7174ca"
+    }
+  },
+  "messageQueue": {
+    "host": "amqp://localhost"
+  },
+  "thirdPartyPlatform": {
+    "intercom": {
+      "token": "dG9rOjM0NjdiMzg5XzEwMTVfNDg3N19hM2M3X2NiOWFjMDc3NWJjMjoxOjA="
+    }
+  },
+  "database": {
+    "pg": {
+      "user": "ziqihong",
+      "database": "tickets",
+      "password": "",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "max": 10,
+      "idleTimeoutMillis": 10000
+    }
+  }
 }

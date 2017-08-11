@@ -1,17 +1,23 @@
 {
-	"analytics": {
-		"mixpanel": {
-			"token": "a837a7c5c59cd2bf2836be160e7174ca"
-		}
-	},
-	"system": {
-		"amqp": {
-			"url": "amqp://localhost"
-		},
-	},
-	"customer_management": {
-		"intercom": {
-			"token": ""
-		},
-	},
+  "analytics": {
+    "mixpanel": {
+      "token": "dd3e8af78975b279aa5c37f18b38993b"
+    }
+  },
+  "thirdPartyPlatform": {
+    "intercom": {
+      "token": "dG9rOjRmMDFiZDBmX2YyNzRfNDFmNV9hNjk5X2E2NjMxZTU5OWRiMzoxOjA="
+    }
+  },
+  "database": {
+    "pg": {
+      "user": "postgres",
+      "database": "tickets_prod",
+      "password": "",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "max": 10,
+      "idleTimeoutMillis": 1000
+    }
+  }
 }

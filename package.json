@@ -1,18 +1,23 @@
 {
-  "name": "message_receiver",
+  "name": "message-receiver",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "lint": "gulp lint"
   },
   "author": "Ziqi Hong",
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.5.1",
+    "bunyan": "^1.8.12",
     "config": "^1.26.1",
     "faker": "^4.1.0",
     "intercom-client": "^2.8.8",
+    "lodash": "^4.17.4",
     "mixpanel": "^0.7.0",
     "pg": "^7.1.0"
   },
@@ -22,10 +27,17 @@
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-es2015-node6": "^0.4.0",
     "babel-register": "^6.24.1",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-cli": "^1.4.0",
+    "gulp-eslint": "^4.0.0",
     "gulp-live-server": "^0.0.31",
+    "gulp-minify": "^1.0.0",
     "rimraf": "^2.6.1"
   }
 }
